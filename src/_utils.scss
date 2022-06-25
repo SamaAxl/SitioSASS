@@ -1,0 +1,65 @@
+@import 'config';
+
+/* Se pueden establecer funciones las cuales deben de tener un return para retornar un valor */
+@function size($value) {
+	@return $value * $unit;
+}
+
+/* Los mixin son bloques de código que no necesariamente retornan un valor, estos pueden recibir o no paramteros. */
+@mixin reset-pm {
+	padding: 0;
+	margin: 0;
+}
+
+.row {
+	display: flex;
+	align-items: center;
+	.col {
+		width: 50%;
+	}
+
+	.col-30 {
+		width: 30%;
+	}
+
+	.col-70 {
+		width: 70%;
+	}
+}
+
+.m-auto {
+	margin: 0 auto;
+}
+
+/* Iteraciones en scss */
+
+@for $i from 1 to $limit {
+	/* Es parecido a las template strings de JavaScript `${$i}` */
+	.m-#{$i} {
+		margin: $i * $unit;
+	}
+}
+
+@for $i from 1 to $limit {
+	/* Es parecido a las template strings de JavaScript `${$i}` */
+
+	.p-#{$i} {
+		padding: $i * $unit;
+	}
+}
+
+@for $i from 1 to $limit {
+	/* Es parecido a las template strings de JavaScript `${$i}` */
+
+	.py-#{$i} {
+		padding: $i * $unit 0;
+	}
+}
+
+@for $i from 1 to 4 {
+	/* Es parecido a las template strings de JavaScript `${$i}` */
+
+	.w-#{$i} {
+		width: $i * 25%;
+	}
+}
